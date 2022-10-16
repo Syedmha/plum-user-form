@@ -1,0 +1,19 @@
+.step3-container {
+    margin-left: 10rem;
+    margin-right: 34rem;
+    margin-top: 3.244rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.txt-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox {
+    margin-left: 4.5rem;
+}
