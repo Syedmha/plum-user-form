@@ -5,12 +5,15 @@ import { Text } from '@chakra-ui/react'
 import { IconButton } from '@chakra-ui/react'
 import { ChevronLeftIcon } from '@chakra-ui/icons'
 import ReviewComp from '../FormStep4/ReviewComp/ReviewComp'
+import { useStepsContext } from '../../../Context/StepsContext'
 function FormStep4() {
+
+    const { steps, setSteps } = useStepsContext();
     return (
         <>
             <div className='step4-container'>
                 <div className='txt-container'>
-                    <IconButton marginRight={'1.5rem'} isRound size={'lg'} aria-label='Search database' icon={<ChevronLeftIcon />} />
+                    <IconButton marginRight={'1.5rem'} isRound onClick={() => setSteps(steps - 1)} size={'lg'} aria-label='Search database' icon={<ChevronLeftIcon />} />
 
                     <Stack spacing={2}>
                         <Heading size='lg'>Select your deductible amount</Heading>

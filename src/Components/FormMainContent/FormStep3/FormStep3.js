@@ -4,14 +4,17 @@ import { Heading, Stack, CheckboxGroup, Checkbox, Box } from '@chakra-ui/react'
 import { Text } from '@chakra-ui/react'
 import { IconButton } from '@chakra-ui/react'
 import { ChevronLeftIcon } from '@chakra-ui/icons'
+import { useStepsContext } from '../../../Context/StepsContext'
 
 
 function FormStep3() {
+    const { steps, setSteps } = useStepsContext();
+
     return (
         <>
             <div className='step3-container'>
                 <div className='txt-container'>
-                    <IconButton marginRight={'1.5rem'} isRound size={'lg'} aria-label='Search database' icon={<ChevronLeftIcon />} />
+                    <IconButton marginRight={'1.5rem'} isRound onClick={() => setSteps(steps - 1)} size={'lg'} aria-label='Search database' icon={<ChevronLeftIcon />} />
                     <Heading size='lg'>Declaration</Heading>
                 </div>
                 <div className='checkbox'>
