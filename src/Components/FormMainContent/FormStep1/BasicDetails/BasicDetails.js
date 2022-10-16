@@ -7,6 +7,7 @@ import {
     AccordionPanel,
     AccordionIcon,
     Box,
+    Divider,
 } from '@chakra-ui/react'
 import { Grid, GridItem } from '@chakra-ui/react'
 import {
@@ -16,8 +17,10 @@ import {
     FormHelperText,
     Input
 } from '@chakra-ui/react'
+import { useUserDetailsContext } from '../../../../Context/UserDetails'
 
 function BasicDetails() {
+    const { schema, userDataState, userDataDispatch } = useUserDetailsContext();
     return (
         <>
             <div className='basic-container'>
@@ -37,41 +40,37 @@ function BasicDetails() {
                                 </Box>
                                 <AccordionIcon sx={{ backgroundColor: '#FFFFFF' }} />
                             </AccordionButton>
+                            <Divider />
                         </h2>
                         <AccordionPanel pb={4} sx={{
                             backgroundColor: '#FFFFFF',
-                            borderRadius: '0 0 10px 10px',
-                            borderWidth: '1px 0 0 0',
-                            borderStyle: 'solid',
-                            borderColor: "#8C98AB",
                         }}>
-                            <FormControl>
+                            <FormControl onSubmit={console.log("submitted")}>
                                 <Grid templateColumns='repeat(2, 1fr)' gap={6}>
                                     <GridItem>
                                         <FormLabel color={'gray.600'} fontWeight={400} fontSize={'14px'}>Personal email address</FormLabel>
-                                        <Input type='email' placeholder='Enter' />
+                                        <Input type='email' placeholder='Enter' onChange={(event) => { userDataDispatch({ type: "EMAIL", playload: event.target.value }) }} />
                                     </GridItem>
                                     <GridItem>
                                         <FormLabel color={'gray.600'} fontWeight={400} fontSize={'14px'}>Mobile number</FormLabel>
-                                        <Input type='email' placeholder='Enter' />
+                                        <Input type='tel' placeholder='Enter' onChange={(event) => { userDataDispatch({ type: "MOBILE", playload: event.target.value }) }} />
                                     </GridItem>
                                     <GridItem>
                                         <FormLabel color={'gray.600'} fontWeight={400} fontSize={'14px'}>Address line 01</FormLabel>
-                                        <Input type='email' placeholder='Enter' />
+                                        <Input type='text' placeholder='Enter' onChange={(event) => { userDataDispatch({ type: "ADD1", playload: event.target.value }) }} />
                                     </GridItem>
                                     <GridItem>
                                         <FormLabel color={'gray.600'} fontWeight={400} fontSize={'14px'}>Address line 02</FormLabel>
-                                        <Input type='email' placeholder='Enter' />
+                                        <Input type='text' placeholder='Enter' onChange={(event) => { userDataDispatch({ type: "ADD2", playload: event.target.value }) }} />
                                     </GridItem>
                                     <GridItem>
                                         <FormLabel color={'gray.600'} fontWeight={400} fontSize={'14px'}>Pincode</FormLabel>
-                                        <Input type='email' placeholder='Enter' />
+                                        <Input type='text' placeholder='Enter' onChange={(event) => { userDataDispatch({ type: "PIN", playload: event.target.value }) }} />
                                     </GridItem>
                                     <GridItem>
                                         <FormLabel color={'gray.600'} fontWeight={400} fontSize={'14px'}>State</FormLabel>
-                                        <Input type='email' placeholder='Enter' />
+                                        <Input type='text' placeholder='Enter' onChange={(event) => { userDataDispatch({ type: "DEDUCT", playload: event.target.value }) }} />
                                     </GridItem>
-                                    {/* <GridItem w='100%' h='10' bg='blue.500' /> */}
                                 </Grid>
                             </FormControl>
 

@@ -7,6 +7,7 @@ import {
     AccordionPanel,
     AccordionIcon,
     Box,
+    Divider,
 } from '@chakra-ui/react'
 import { Select } from '@chakra-ui/react'
 import { Text } from '@chakra-ui/react'
@@ -31,13 +32,10 @@ function PlanDetails() {
                                 </Box>
                                 <AccordionIcon sx={{ backgroundColor: '#FFFFFF' }} />
                             </AccordionButton>
+                            <Divider />
                         </h2>
                         <AccordionPanel pb={4} sx={{
-                            backgroundColor: '#FFFFFF',
-                            borderRadius: '0 0 10px 10px',
-                            borderWidth: '1px 0 0 0',
-                            borderStyle: 'solid',
-                            borderColor: "#8C98AB",
+                            backgroundColor: '#FFFFFF'
                         }}>
                             <Text sx={{ backgroundColor: '#FFFFFF' }} color={'gray.600'} fontWeight={400} fontSize={'14px'}>Your plan type</Text>
                             <Select placeholder='Select your plan'>
